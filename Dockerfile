@@ -26,6 +26,10 @@ RUN python3 -m pip install bpython quickfind
 RUN mkdir -p /app
 RUN mkdir -p /data
 
+# Copy files form HOST to image
+ADD ./get_mp4_proj/get* /bin/
+ADD ./.inputrc /root/
+
 # When connecting to running container start in this directory
 WORKDIR /data
 
