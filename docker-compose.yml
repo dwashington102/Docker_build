@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mywap:
+    image: "getmp4:v5"         # Image name can be local or remote
+    container_name: "wap"      # Set Container Name
+    volumes:                   # Add Volume information. 
+      - wapdb:/data            # NamedVolume:Container FS
+    command: "www.URL.com" # Command being passed to docker container
+    environment: 
+      - TERM=dumb
+
+  myshoosh: 
+    image: "getmp4:v5"
+    container_name: "shoosh"
+    volumes:
+      - shodb:/data
+    command: "www.URL.com"
+    environment:
+      - TERM=dumb
+
+volumes:                      # Required when using named volumes
+  wapdb:
+    external: true            # required when named volumes already exists 
+  shodb:
+    external: true
