@@ -8,9 +8,9 @@ RUN apt-get clean all
 # Install usual OS packages
 RUN apt-get install -y --no-install-recommends \
 bash \
+wget \
 mlocate \
 vim \
-python-pip \
 tzdata
 
 RUN apt-get clean
@@ -20,7 +20,7 @@ ENV TZ America/Chicago
 
 # Run OS commands
 RUN updatedb
-RUN python3 -m pip install bpython quickfind
+#RUN python3 -m pip install bpython quickfind
 
 # Create Directories
 RUN mkdir -p /app
@@ -28,7 +28,7 @@ RUN mkdir -p /data
 
 # Copy files form HOST to image
 ADD ./get_mp4_proj/get* /bin/
-ADD ./.inputrc /root/
+ADD INPUTRC /root/.inputrc
 
 # When connecting to running container start in this directory
 WORKDIR /data
