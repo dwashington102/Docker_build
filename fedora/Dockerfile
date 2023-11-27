@@ -24,7 +24,7 @@ ENV TZ America/Chicago
 
 # Run 
 RUN updatedb
-RUN python3 -m pip install bpython quickfind
+RUN python3 -m pip install python3-ptpython quickfind
 
 ENTRYPOINT [ "/usr/bin/bash" ]
 WORKDIR /tmp
